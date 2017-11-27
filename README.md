@@ -2,6 +2,7 @@
 
 Get an alert everytime a new coin is listed on Bittrex
 
+<img src="https://github.com/AndreiD/xBittrexFx/blob/master/screenshot.PNG?raw=true" alt="screenshot bittrex" />
  
 ### :star: Features
   - Runs on Windows / Linux / Mac
