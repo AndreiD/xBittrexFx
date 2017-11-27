@@ -63,12 +63,6 @@ public class Controller {
         .url("https://bittrex.com/api/v1.1/public/getmarkets")
         .build();
 
-    //------- NOT USED AT THE MOMENT SINCE THE API CALL IS PUBLIC -----------
-    //------- read the configuration ---------
-    //Properties properties = new Properties();
-    //Path propFile = Paths.get(this.getClass().getResource("config.ini").toURI());
-    //properties.load(Files.newBufferedReader(propFile));
-    //System.out.println(">> GOT>> " + properties.getProperty("BITTREX_API_KEY"));
   }
 
   private void soundAlarm() {
@@ -134,18 +128,13 @@ public class Controller {
 
           List<Result> newcoinsList = markets.getResult();
 
-          //---- on the first run, do nothing ----
+          //on the first run, fill the oldCoins
           if (firstRun) {
             firstRun = false;
             oldList = newcoinsList;
             updateLabel("waiting for the next coin (" + newcoinsList.size() + " coins.)");
             return;
           }
-
-          //Test new coin....
-          //Result xResult = new Result();
-          //xResult.setMarketName("ANDREICOIN");
-          //newcoinsList.add(xResult);
 
           newcoinsList.removeAll(oldList);
 
@@ -164,7 +153,7 @@ public class Controller {
     });
   }
 
-  //------ helpers -------
+  // Helpers
   public void setStage(Stage stage) {
     this.stage = stage;
   }
